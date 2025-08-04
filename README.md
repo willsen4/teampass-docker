@@ -42,7 +42,7 @@ docker compose up -d
 ````
 ### Na página de configuração do Teampass vai pedir "Secure Path" onde vai ficar as senhas criptografadas do Teampass fora do www padrão, colocar /var/www/html, pois esse caminho já foi criado no compose.
 
-# Acessar o Teampass
+## Acessar o Teampass
 ### Abra seu navegador e vá até http://<IP_da_VM_ou_endereço_externo>:8090/install
 ### Siga o assistente de instalação para completar o setup do Teampass. Ele vai usar o banco já configurado.
 ### Acesse com usuário "admin" e a senha criada.
@@ -63,7 +63,7 @@ docker compose down
 ````Bash
 docker compose up -d
 ````
-# Pós-instalação CRÍTICA (Segurança!)
+## Pós-instalação CRÍTICA (Segurança!)
 ### MUITO IMPORTANTE: Após a instalação bem-sucedida do TeamPass, você DEVE remover ou renomear o diretório install/ dentro do contêiner do TeamPass para evitar que qualquer pessoa acesse o assistente de instalação novamente.
 
 ### Execute este comando no SSH da sua VM:
@@ -72,4 +72,5 @@ docker exec teampass-app rm -rf /var/www/html/install
 ````
 
 # FIM!
+
 
