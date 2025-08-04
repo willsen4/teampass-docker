@@ -1,0 +1,25 @@
+services:
+  teampass:
+    image: valterseu/teampass:latest # Mudei para a imagem oficial. Se quiser manter valterseu/teampass, verifique as variáveis de ambiente.
+    container_name: teampass-app
+    ports:
+      - "8090:80" # Porta externa 8090 para a porta 80 do contêiner
+    environment:
+      # Variáveis de ambiente da imagem oficial do TeamPass.
+      # Se você usar valterseu/teampass, talvez precise reverter para DB_SERVER, DB_USER, etc.
+      TP_DB_HOST: mysql-app # Confirme que 'mysql-app' é o nome CORRETO do seu contêiner MySQL
+      TP_DB_NAME: teampass_db
+      TP_DB_USER: teampass_user
+      TP_DB_PASSWORD: sua_senha_forte
+    volumes:
+      # Montagem correta para persistir os dados do TeamPass
+      - teampass_data:/var/www/html/teampass
+      # Montagem do diretório seguro. Mantenha o caminho no host e no contêiner.
+      - /opt/teampass_secure:/var/teampass_secure
+    networks: # <-- Ajustei o recuo aqui!
+      - teampass_network
+networks:
+  teampass_network:
+    external: true # Indica que esta rede já existe e não deve ser criada pelo Docker Compose
+volumes:
+  teampass_data: # Volume nomeado para persistir os dados da aplicação TeamPass
