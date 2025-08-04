@@ -1,34 +1,41 @@
 ﻿# Instalar teampass com Docker
 ## Criar banco de dados no Cliente MySQL já instalado no Docker
+-----------
 ### Acessar o Shell do contêiner MySQL
 ````Bash   
 docker exec -it mysql-app mysql -uroot -p
 ````
+---------
 ### Depois crie o banco e o usuário:
 SQL
-
+### Usar os comandos que estão no arquivo SQL.sql
+--------
 ### Criar volume para persistência:
 ````Bash
 mkdir teampass-docker
 cd teampass-docker
 ````
+--------
 ### Crie um arquivo docker-compose.yml:
 ````Bash
 nano docker-compose.yml
 ````
+----------
 ### Cole o conteúdo:
 YAML
 
 ### Salve e feche o arquivo. (Em nano, pressione Ctrl+X, depois Y e Enter).
-
+-------------
 ### Criar rede Teampass
 ````Bash
 docker network create teampass_network
 ````
+---------
 ### Conectar a rede MySQL
 ````Bash
 docker network connect teampass_network mysql-app
 ````
+-----------
 ### Para inspecionar a rede
 ````Bash
 docker inspect mysql-app | grep -A 5 "Networks"
@@ -36,10 +43,12 @@ docker inspect mysql-app | grep -A 5 "Networks"
 ````Bash
 docker inspect teampass-app | grep -A 5 "Networks"
 ````
+------------
 ### Depois execute:
 ````Bash
 docker compose up -d
 ````
+-------------
 ### Na página de configuração do Teampass vai pedir "Secure Path" onde vai ficar as senhas criptografadas do Teampass fora do www padrão, colocar /var/www/html, pois esse caminho já foi criado no compose.
 
 ## Acessar o Teampass
@@ -54,15 +63,17 @@ docker compose up -d
 * Password: sua_senha_forte
 * Port: 3306
 * Table prefix: teampess_
-
+-------------
 ### Se precisar parar o contêiner existente
 ````Bash
 docker compose down
 ````
+-----------
 ### Se precisar recriar e inicia o contêiner
 ````Bash
 docker compose up -d
 ````
+------------
 ## Pós-instalação CRÍTICA (Segurança!)
 ### MUITO IMPORTANTE: Após a instalação bem-sucedida do TeamPass, você DEVE remover ou renomear o diretório install/ dentro do contêiner do TeamPass para evitar que qualquer pessoa acesse o assistente de instalação novamente.
 
@@ -72,5 +83,6 @@ docker exec teampass-app rm -rf /var/www/html/install
 ````
 
 # FIM!
+
 
 
