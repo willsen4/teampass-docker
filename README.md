@@ -1,4 +1,6 @@
 ﻿# Instalar teampass com Docker
+## TeamPass é um gerenciador de senhas de código aberto projetado para equipes e organizações, permitindo o armazenamento seguro e colaborativo de senhas e informações sensíveis. 
+ 
 ## Criar banco de dados no Cliente MySQL já instalado no Docker
 -----------
 ### Acessar o Shell do contêiner MySQL
@@ -83,6 +85,7 @@ docker exec teampass-app rm -rf /var/www/html/install
 ````
 
 # FIM!
+
 
 
 
