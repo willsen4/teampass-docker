@@ -15,6 +15,8 @@ SQL
 ### Criar volume para persistência:
 ````Bash
 mkdir teampass-docker
+````
+````Bash
 cd teampass-docker
 ````
 --------
@@ -85,6 +87,7 @@ docker exec teampass-app rm -rf /var/www/html/install
 ````
 
 # FIM!
+
 
 
 
