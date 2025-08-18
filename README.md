@@ -65,7 +65,7 @@ docker inspect teampass-app | grep -A 5 "Networks"
 docker compose up -d
 ````
 -------------
-### Na página de configuração do Teampass vai pedir "Secure Path" onde vai ficar as senhas criptografadas do Teampass fora do www padrão, colocar /var/www/html/teampass, pois esse caminho já foi criado no compose.
+### Na página de configuração do Teampass vai pedir "Secure Path" onde vai ficar as senhas criptografadas do Teampass fora do www padrão, colocar /var/teampass_secure, pois esse caminho já foi criado no compose.
 
 ## Acessar o Teampass
 ### Abra seu navegador e vá até http://<IP_da_VM_ou_endereço_externo>:8090/install
@@ -99,6 +99,7 @@ docker exec teampass-app rm -rf /var/www/html/install
 ````
 
 # FIM!
+
 
 
 
