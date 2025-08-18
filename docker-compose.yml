@@ -12,9 +12,9 @@ services:
       TP_DB_PASSWORD: sua_senha_forte
     volumes:
       # Montagem para persistir os dados da aplicação TeamPass   
-      - /dados/data/teampass3/pw:/var/www/html/teampass
+      - /data/teampass-app:/var/www/html
       # Montagem para o diretório seguro
-      - /dados/data/teampass3/configs:/var/teampass_secure
+      - /data/teampass-app:/var/teampass_secure
     networks:
       - teampass_network
 

@@ -3,17 +3,13 @@
 
 ### Criando os diretórios / volumes (Dados persistentes)
 ````Bash
-sudo mkdir -p /data/teampass3/pw
-sudo mkdir -p /data/teampass3/configs
-sudo mkdir -p /opt/teampass-secure
+sudo mkdir -p /data/teampass-app
 ````
 -----------
 ### Ajustando permissões do GLPI
 ````Bash
-sudo chown -R 33:33 /data/teampass3
-sudo chmod -R 775 /data/teampass3
-sudo chown -R 33:33 /opt/teampass-secure
-sudo chmod -R 775 /opt/teampass-secure
+sudo chown -R 33:33 /data/teampass-app
+sudo chmod -R 775 /data/teampass-app
 ````
 ----------
 ## Criar banco de dados no Cliente MySQL já instalado no Docker
@@ -69,7 +65,7 @@ docker inspect teampass-app | grep -A 5 "Networks"
 docker compose up -d
 ````
 -------------
-### Na página de configuração do Teampass vai pedir "Secure Path" onde vai ficar as senhas criptografadas do Teampass fora do www padrão, colocar /var/www/html, pois esse caminho já foi criado no compose.
+### Na página de configuração do Teampass vai pedir "Secure Path" onde vai ficar as senhas criptografadas do Teampass fora do www padrão, colocar /var/www/html/teampass, pois esse caminho já foi criado no compose.
 
 ## Acessar o Teampass
 ### Abra seu navegador e vá até http://<IP_da_VM_ou_endereço_externo>:8090/install
