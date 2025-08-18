@@ -58,9 +58,6 @@ docker inspect mysql-app | grep -A 5 "Networks"
 
 docker inspect teampass-app | grep -A 5 "Networks"
 
-#Depois execute:
-bash
-docker compose up -d
-
-
-
+# Remover ou renomear o diretório install/
+Bash
+docker exec teampass-app rm -rf /var/www/html/install

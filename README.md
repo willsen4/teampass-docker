@@ -1,7 +1,23 @@
 ﻿# Instalar teampass com Docker
 ## TeamPass é um gerenciador de senhas de código aberto projetado para equipes e organizações, permitindo o armazenamento seguro e colaborativo de senhas e informações sensíveis. 
- 
+
+### Criando os diretórios / volumes (Dados persistentes)
+````Bash
+sudo mkdir -p /data/teampass3/pw
+sudo mkdir -p /data/teampass3/configs
+sudo mkdir -p /opt/teampass-secure
+````
+-----------
+### Ajustando permissões do GLPI
+````Bash
+sudo chown -R 33:33 /data/teampass3
+sudo chmod -R 775 /data/teampass3
+sudo chown -R 33:33 /opt/teampass-secure
+sudo chmod -R 775 /opt/teampass-secure
+````
+----------
 ## Criar banco de dados no Cliente MySQL já instalado no Docker
+
 -----------
 ### Acessar o Shell do contêiner MySQL
 ````Bash   
