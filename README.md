@@ -6,7 +6,7 @@
 sudo mkdir -p /data/teampass-app
 ````
 -----------
-### Ajustando permissões do GLPI
+### Ajustando permissões do Teampass
 ````Bash
 sudo chown -R 33:33 /data/teampass-app
 sudo chmod -R 775 /data/teampass-app
