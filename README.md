@@ -38,7 +38,31 @@ nano docker-compose.yml
 ````
 ----------
 ### Cole o conteúdo:
-YAML
+```YAML
+services:
+  teampass:
+    image: valterseu/teampass:latest
+    container_name: teampass-app
+    ports:
+      - "8090:80"
+    environment:
+      # Variáveis de ambiente da imagem oficial do TeamPass.
+      TP_DB_HOST: mysql-app
+      TP_DB_NAME: teampass_db
+      TP_DB_USER: teampass_user
+      TP_DB_PASSWORD: sua_senha_forte
+    volumes:
+      # Montagem para persistir os dados da aplicação TeamPass   
+      - /data/teampass-app:/var/www/html
+      # Montagem para o diretório seguro
+      - /data/teampass-app:/var/teampass_secure
+    networks:
+      - teampass_network
+
+networks:
+  teampass_network:
+    external: true # Indica que esta rede já existe e não deve ser criada pelo Docker Compose
+```
 
 ### Salve e feche o arquivo. (Em nano, pressione Ctrl+X, depois Y e Enter).
 -------------
