@@ -13,6 +13,7 @@ sudo chmod -R 777 /data/teampass-app
 ````
 ----------
 ## Criar banco de dados no Cliente MySQL já instalado no Docker
+https://github.com/willsen4/mysql-docker
 
 -----------
 ### Acessar o Shell do contêiner MySQL
