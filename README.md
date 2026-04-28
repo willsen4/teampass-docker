@@ -9,7 +9,7 @@ sudo mkdir -p /data/teampass-app
 ### Ajustando permissões do Teampass
 ````Bash
 sudo chown -R 33:33 /data/teampass-app
-sudo chmod -R 775 /data/teampass-app
+sudo chmod -R 777 /data/teampass-app
 ````
 ----------
 ## Criar banco de dados no Cliente MySQL já instalado no Docker
@@ -61,7 +61,7 @@ services:
       # Montagem para persistir os dados da aplicação TeamPass   
       - /data/teampass-app:/var/www/html
       # Montagem para o diretório seguro
-      - /data/teampass-app:/var/teampass_secure
+      - /data/teampass-app/secure:/var/teampass_secure
     networks:
       - teampass_network
 
@@ -127,6 +127,14 @@ docker compose up -d
 ````Bash
 docker exec teampass-app rm -rf /var/www/html/install
 ````
+
+Se no primeiro acesso de configuração der erro ou ficar no loop voltando sempre pro início da tela de configuração,
+é por causa de permissão na pasta /data/teampass-app, ajuste as permissões rodando os camoandos novamente:
+````Bash
+sudo chown -R 33:33 /data/teampass-app
+sudo chmod -R 777 /data/teampass-app
+````
+
 
 # FIM!
 
